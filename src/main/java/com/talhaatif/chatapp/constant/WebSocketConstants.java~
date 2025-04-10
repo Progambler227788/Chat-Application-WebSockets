@@ -1,0 +1,4 @@
+package com.talhaatif.chatapp.constant;
+
+public class WebSocketConstants {
+}

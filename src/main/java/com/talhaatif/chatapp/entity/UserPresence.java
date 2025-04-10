@@ -1,0 +1,29 @@
+package com.talhaatif.chatapp.entity;
+
+
+import com.talhaatif.chatapp.constant.AppConstants;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = AppConstants.USER_PRESENCE_COLLECTION)
+public class UserPresence {
+    @Id
+    private String id;
+
+    private String username;
+    private String status;
+
+    private String sessionId;
+
+    @Indexed(expireAfterSeconds = AppConstants.USER_PRESENCE_TTL_MINUTES * 60)
+    private LocalDateTime lastSeen;
+}

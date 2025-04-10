@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: chatapp
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chatapp
+      auto-index-creation: true
+
+  messages:
+    basename: i18n/messages
+
+  web:
+    resources:
+      static-locations: classpath:/static/
+    mvc:
+      static-path-pattern: /**
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.data.mongodb.core: DEBUG
+    com.talhaatif.chatapp: DEBUG
+    root: WARN
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

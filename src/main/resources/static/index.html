@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatApp Test Client</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.0/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+<div class="chat-container">
+    <div class="header">
+        <h1>ChatApp Tester</h1>
+        <div class="connection-controls">
+            <input type="text" id="username" placeholder="Your username">
+            <button id="connectBtn">Connect</button>
+            <button id="disconnectBtn" disabled>Disconnect</button>
+        </div>
+    </div>
+
+    <div class="chat-area">
+        <div class="messages" id="messages"></div>
+
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Type your message..." disabled>
+            <button id="sendBtn" disabled>Send</button>
+            <button id="typingBtn" disabled>I'm typing</button>
+        </div>
+    </div>
+
+    <div class="status-area">
+        <h3>Connection Status</h3>
+        <div id="connectionStatus">Disconnected</div>
+
+        <h3>Online Users</h3>
+        <div id="onlineUsers"></div>
+
+        <h3>Activity Notifications</h3>
+        <div id="activityNotifications"></div>
+    </div>
+</div>
+</body>
+</html>

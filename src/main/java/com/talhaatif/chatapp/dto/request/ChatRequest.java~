@@ -1,0 +1,4 @@
+package com.talhaatif.chatapp.dto.request;
+
+public class ChatRequest {
+}

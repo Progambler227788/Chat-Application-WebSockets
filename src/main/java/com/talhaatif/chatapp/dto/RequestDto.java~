@@ -1,0 +1,12 @@
+package com.talhaatif.chatapp.dto;
+
+import com.example.chat.entities.ChatMessage.MessageType;
+import lombok.Data;
+
+@Data
+public class MessageRequestDto {
+    private String sender;
+    private String content;
+    private MessageType type;
+    private String roomId;
+}

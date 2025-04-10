@@ -1,0 +1,52 @@
+package com.talhaatif.chatapp.controller;
+
+import com.talhaatif.chatapp.dto.request.ChatMessageRequest;
+import com.talhaatif.chatapp.dto.request.TypingNotificationRequest;
+import com.talhaatif.chatapp.dto.response.UserActivityResponse;
+import com.talhaatif.chatapp.service.ChatService;
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.stereotype.Controller;
+
+import java.time.LocalDateTime;
+
+@Controller
+public class ChatController {
+
+    private final ChatService chatService;
+
+    public ChatController(ChatService chatService) {
+        this.chatService = chatService;
+    }
+
+    @MessageMapping("/chat.send")
+    public void handleMessage(@Payload ChatMessageRequest request) {
+        chatService.saveMessage(request);
+    }
+
+    @MessageMapping("/chat.typing")
+    public void handleTyping(@Payload TypingNotificationRequest request) {
+        chatService.sendTypingNotification(request);
+    }
+
+    @MessageMapping("/chat.join")
+    public void handleJoin(@Payload String username, String sessionId) {
+        chatService.joinChat(username, sessionId);
+    }
+
+    @MessageMapping("/chat.leave")
+    public void handleLeave(@Payload String sessionId) {
+        chatService.leaveChat(sessionId);
+    }
+
+    @MessageExceptionHandler
+    @SendToUser("/queue/errors")
+    public String handleException(Exception ex) {
+        return ex.getMessage();
+    }
+
+
+}

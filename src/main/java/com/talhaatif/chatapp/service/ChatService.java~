@@ -1,0 +1,4 @@
+package com.talhaatif.chatapp.service;
+
+public class ChatService {
+}

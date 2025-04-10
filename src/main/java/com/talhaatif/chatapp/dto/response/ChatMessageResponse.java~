@@ -1,0 +1,4 @@
+package com.talhaatif.chatapp.dto.response;
+
+public class ChatMessageResponse {
+}

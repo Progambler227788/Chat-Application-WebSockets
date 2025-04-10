@@ -1,0 +1,126 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.chat-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.connection-controls {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+}
+
+.messages {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#messageInput {
+    flex-grow: 1;
+}
+
+.status-area {
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+}
+
+.status-area > div {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    min-height: 100px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #e9f7ef;
+    border-radius: 4px;
+}
+
+.message.sent {
+    background-color: #d4edda;
+    text-align: right;
+}
+
+.notification {
+    color: #6c757d;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.user-status {
+    margin-bottom: 5px;
+}
+
+.typing-notification {
+    color: #17a2b8;
+    font-style: italic;
+}
