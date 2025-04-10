@@ -3,7 +3,7 @@ spring:
     name: chatapp
   data:
     mongodb:
-      uri: mongodb://localhost:27017/chatapp
+      uri: mongodb+srv://talhaatif573:jTq7nZCY86JF8VYK@talha.x5yrf.mongodb.net/chatapp?retryWrites=true&w=majority&appName=Talha&ssl=true&connectTimeoutMS=30000&socketTimeoutMS=30000&serverSelectionTimeoutMS=50000&maxPoolSize=50&retryReads=true
       auto-index-creation: true
 
   messages:
